@@ -2,6 +2,8 @@ require 'logger'
 
 class LittleLogFriend
   
+  VERSION = "0.0.1"
+
   @@colorize = false
 
   Format = "%s [%5s] %d %s: %s"
