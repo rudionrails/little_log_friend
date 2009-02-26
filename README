@@ -1,13 +1,33 @@
-LittleLogFriend
-===============
+= LittleLogFriend
 
-Introduction goes here.
+LittleLogFriend sets your standard logger to a more readable format, like so:
+
+logger = Logger.new STDOUT
+logger.info 'hello world'
+# => 2009-01-14 10:10:10 [ INFO] 15356 : hello world
+
+The format is: DATE TIME [ LOG LEVEL ] PID : MESSAGE
 
 
-Example
-=======
+== Installation
 
-Example goes here.
+LittleLogFriend is available as plugin:
+
+  script/plugin install git://github.com/rudionrails/little_log_friend.git
+
+  
+== Usage
+
+LittleLogFriend will automatically enhance your standard logger with a nicer 
+log formatting - nothing more. Instead of the regular format, you will see 
+every log message starting with a nice timestamp and a better formatted message 
+altogether. This will help you to trace your logs much easier in case something 
+goes wrong, for instance. Moreover, if you are using monitoring tools to 
+detect errors in you logs so that they send out notifications to your sysadmin, 
+a unified logging format will significantly ease this process.
+
+LittleLogFriend is not meant to be a fully featured log solution, but it's
+supposed to help in the smaller scale and especially when developing.
 
 
 Copyright (c) 2009 Rudolf Schmidt, released under the MIT license
