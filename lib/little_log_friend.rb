@@ -4,8 +4,7 @@ module LittleLogFriend
   
   VERSION = "0.1.0"
   
-  # not yet implemented
-  # def self.colorize!; Formatter.colorize!; end  
+  def self.colorize!; Formatter.colorize!; end  
   
   class Formatter < Logger::Formatter
     
@@ -34,7 +33,7 @@ module LittleLogFriend
     def call ( severity, time, progname, msg )
       msg = Format % [format_datetime(time), severity, $$, progname, msg2str(msg)]
       
-      # msg = COLORS[severity] + msg + COLORS['DEFAULT'] if @@colorize
+      msg = COLORS[severity] + msg + COLORS['DEFAULT'] if @@colorize
       msg << "\n"
     end
     
