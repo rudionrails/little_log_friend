@@ -22,12 +22,33 @@ LittleLogFriend will automatically enhance your standard logger with a nicer
 log formatting - nothing more. Instead of the regular format, you will see 
 every log message starting with a nice timestamp and a better formatted message 
 altogether. This will help you to trace your logs much easier in case something 
-goes wrong, for instance. Moreover, if you are using monitoring tools to 
+goes happens. Moreover, if you are using monitoring tools to 
 detect errors in you logs so that they send out notifications to your sysadmin, 
 a unified logging format will significantly ease this process.
 
+Additionally to that, you can add this to your environment.rb: 
+
+LittleLogFriend.colorize!
+
+This will enable colorized log output (under Unix). Every log level will appear
+in a different color to ease log interpretation. Here are the colors for each
+severity:
+
+debug => green
+info  => white
+warn  => yello
+error => red
+fatal => purple
+
+
+== Additional Note
+
 LittleLogFriend is not meant to be a fully featured log solution, but it's
 supposed to help in the smaller scale and especially when developing.
+
+Also, you probably don't want to use colorized logging in production mode, as it
+will be very difficult to read the log file on a remote server with all the color
+information in it.
 
 
 Copyright (c) 2009 Rudolf Schmidt, released under the MIT license
