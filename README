@@ -41,7 +41,7 @@ error => red
 fatal => purple
 
 
-== Additional Note
+== Additional Notes
 
 LittleLogFriend is not meant to be a fully featured log solution, but it's
 supposed to help in the smaller scale and especially when developing.
