@@ -4,7 +4,7 @@ module LittleLogFriend
   
   VERSION = "0.1.1"
   
-  def self.colorize!; Formatter.colorize!; end  
+  def self.colorize!( *args ); Formatter.colorize!( *args ) ; end  
   
   class Formatter < Logger::Formatter
     
@@ -12,7 +12,7 @@ module LittleLogFriend
     
     Format = "%s [%5s] %d %s: %s"
     
-    COLORS = {
+    @@colors = {
       'DEBUG'   => "\e[1;32;1m", # green
       'INFO'    => "\e[0;1m",    # white
       'WARN'    => "\e[1;33;1m", # yello
@@ -20,32 +20,28 @@ module LittleLogFriend
       'FATAL'   => "\e[1;35;1m", # punk, yes PUNK!
       'UNKNOWN' => "\e[0;1m",    # white
       'DEFAULT' => "\e[0m"       # NONE
-    } unless defined? COLORS
+    }
     
     def initialize
       super
       @datetime_format = "%Y-%m-%d %H:%M:%S"
     end
 
-    def self.colorize!; @@colorize = true; end
+    def self.colorize!( options = {} )
+      @@colorize = true 
+      options.each { |key, value| @@colors[key.to_s.upcase] = value }
+    end
     
     # This method is invoked when a log event occurs
     def call ( severity, time, progname, msg )
       msg = Format % [format_datetime(time), severity, $$, progname, msg2str(msg)]
-      
-      msg = COLORS[severity] + msg + COLORS['DEFAULT'] if @@colorize
+      msg = @@colors[severity] + msg + @@colors['DEFAULT'] if @@colorize
       msg << "\n"
     end
     
     def number_to_severity ( n )
-      case n
-        when 0 : 'DEBUG'
-        when 1 : 'INFO'
-        when 2 : 'WARN'
-        when 3 : 'ERROR'
-        when 4 : 'FATAL'
-        when 5 : 'UNKNOWN'
-      end
+      severities = [:debug, :info, :warn, :error, :fatal, :unknown]
+      severities[n]
     end
   end
   
