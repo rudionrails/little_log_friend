@@ -2,7 +2,7 @@ require 'logger'
 
 module LittleLogFriend
   
-  VERSION = "0.1.1"
+  VERSION = "0.1.2"
   
   def self.colorize!( *args ); Formatter.colorize!( *args ) ; end  
   
