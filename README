@@ -39,6 +39,15 @@ info  => white
 warn  => yello
 error => red
 fatal => purple
+unknown => white
+default => default of the console / none
+
+
+Also, you can override the default color settings, like so: 
+
+LittleLogFriend.colorize!( :info => "\033[01;36m" ) # cyan for Unix
+
+Specify the keys as explained above for the default severity colors.
 
 
 == Additional Notes
