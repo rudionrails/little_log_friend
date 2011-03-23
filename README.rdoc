@@ -10,10 +10,24 @@ The format is: DATE TIME [ LOG LEVEL ] PID : MESSAGE
 
 
 == Installation
+=== The Gem Version
 
-LittleLogFriend is available as plugin:
+  gem install little_log_friend
+
+Or in your Gemfile:
+
+  gem 'little_log_friend'
+
+You should create an initializer file in order to get LittleLogFriend to work for you, like so:
+  # config/initializers/little_log_friend.rb (create it if not present)
+  require 'little_log_friend
+
+
+=== The Plugin Version
 
   script/plugin install git://github.com/rudionrails/little_log_friend.git
+
+You don't need to specifically require little_log_friend, the init.rb of the plugin will take care of it.
 
   
 == Usage
@@ -60,4 +74,4 @@ will be very difficult to read the log file on a remote server with all the colo
 information in it.
 
 
-Copyright (c) 2009 Rudolf Schmidt, released under the MIT license
+Copyright (c) 2009 - 2011 Rudolf Schmidt, released under the MIT license

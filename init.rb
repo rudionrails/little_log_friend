@@ -1,1 +1,1 @@
-require File.dirname(__FILE__) + '/lib/little_log_friend'
+require 'little_log_friend'
