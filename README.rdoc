@@ -2,9 +2,9 @@
 
 LittleLogFriend sets your standard logger to a more readable format, like so:
 
-logger = Logger.new STDOUT
-logger.info 'hello world'
-# => 2009-01-14 10:10:10 [ INFO] 15356 : hello world
+  logger = Logger.new STDOUT
+  logger.info 'hello world'
+  # => 2009-01-14 10:10:10 [ INFO] 15356 : hello world
 
 The format is: DATE TIME [ LOG LEVEL ] PID : MESSAGE
 
@@ -42,24 +42,24 @@ a unified logging format will significantly ease this process.
 
 Additionally to that, you can add this to your environment.rb: 
 
-LittleLogFriend.colorize!
+  LittleLogFriend.colorize!
 
 This will enable colorized log output (under Unix). Every log level will appear
 in a different color to ease log interpretation. Here are the colors for each
 severity:
 
-debug => green
-info  => white
-warn  => yello
-error => red
-fatal => purple
-unknown => white
-default => default of the console / none
+  debug   => green
+  info    => white
+  warn    => yello
+  error   => red
+  fatal   => purple
+  unknown => white
+  default => default of the console / none
 
 
 Also, you can override the default color settings, like so: 
 
-LittleLogFriend.colorize!( :info => "\033[01;36m" ) # cyan for Unix
+  LittleLogFriend.colorize!( :info => "\033[01;36m" ) # cyan for Unix
 
 Specify the keys as explained above for the default severity colors.
 
