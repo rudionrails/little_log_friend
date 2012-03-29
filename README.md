@@ -1,36 +1,61 @@
-= LittleLogFriend
+### LittleLogFriend is no longer actively maintained in favour to: [Yell - Your Extensible Logging Library](https://github.com/rudionrails/yell)
+
+Although it is still a good replacement for Ruby's standard Logger in the 
+smaller scale, you might want to take a look at [Yell](https://github.com/rudionrails/yell), 
+or jump directly into the [Wiki](https://github.com/rudionrails/yell/wiki), 
+for a logging solution with some extra whiz-bang!
+
+
+
+
+# LittleLogFriend
 
 LittleLogFriend sets your standard logger to a more readable format, like so:
 
-  logger = Logger.new STDOUT
-  logger.info 'hello world'
-  # => 2009-01-14 10:10:10 [ INFO] 15356 : hello world
+```ruby
+logger = Logger.new STDOUT
+
+logger.info 'hello world'
+#=> 2009-01-14 10:10:10 [ INFO] 15356 : hello world
+```
 
 The format is: DATE TIME [ LOG LEVEL ] PID : MESSAGE
 
 
-== Installation
-=== The Gem Version
+## Installation
 
-  gem install little_log_friend
+### The Gem Version
+
+System wide:
+
+```console
+gem install little_log_friend
+```
 
 Or in your Gemfile:
 
-  gem 'little_log_friend'
+```ruby
+gem 'little_log_friend'
+```
 
 You should create an initializer file in order to get LittleLogFriend to work for you, like so:
-  # config/initializers/little_log_friend.rb (create it if not present)
-  require 'little_log_friend
+
+```ruby
+# config/initializers/little_log_friend.rb (create it if not present)
+require 'little_log_friend
+```
 
 
-=== The Plugin Version
+### The Plugin Version
 
-  script/plugin install git://github.com/rudionrails/little_log_friend.git
+```console
+script/plugin install git://github.com/rudionrails/little_log_friend.git
+```
 
 You don't need to specifically require little_log_friend, the init.rb of the plugin will take care of it.
 
-  
-== Usage
+
+## Usage
 
 LittleLogFriend will automatically enhance your standard logger with a nicer 
 log formatting - nothing more. Instead of the regular format, you will see 
@@ -42,7 +67,9 @@ a unified logging format will significantly ease this process.
 
 Additionally to that, you can add this to your environment.rb: 
 
-  LittleLogFriend.colorize!
+```ruby
+LittleLogFriend.colorize!
+```
 
 This will enable colorized log output (under Unix). Every log level will appear
 in a different color to ease log interpretation. Here are the colors for each
@@ -59,12 +86,14 @@ severity:
 
 Also, you can override the default color settings, like so: 
 
-  LittleLogFriend.colorize!( :info => "\033[01;36m" ) # cyan for Unix
+```ruby
+LittleLogFriend.colorize!( :info => "\033[01;36m" ) # cyan for Unix
+```
 
 Specify the keys as explained above for the default severity colors.
 
 
-== Additional Notes
+## Additional Notes
 
 LittleLogFriend is not meant to be a fully featured log solution, but it's
 supposed to help in the smaller scale and especially when developing.
@@ -74,4 +103,4 @@ will be very difficult to read the log file on a remote server with all the colo
 information in it.
 
 
-Copyright (c) 2009 - 2011 Rudolf Schmidt, released under the MIT license
+Copyright (c) 2009 - 2012 Rudolf Schmidt, released under the MIT license
